@@ -1,0 +1,844 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://sujiba.github.io/wiki/hetzner_x_restic/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
+    
+    
+      
+        <title>Hetzner x Restic - Sujibas Homelab</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.c382b1dc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+      
+    
+    
+    
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#hetzner-x-restic" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Sujibas Homelab" class="md-header__button md-logo" aria-label="Sujibas Homelab" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sujibas Homelab
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Hetzner x Restic
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Siwtch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Siwtch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Zurücksetzen" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        Wiki
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Sujibas Homelab" class="md-nav__button md-logo" aria-label="Sujibas Homelab" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Sujibas Homelab
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Wiki
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Wiki" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Wiki
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Hetzner x Restic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Hetzner x Restic
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#einfuhrung" class="md-nav__link">
+    Einführung
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorbereitung" class="md-nav__link">
+    Vorbereitung
+  </a>
+  
+    <nav class="md-nav" aria-label="Vorbereitung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh-key-generieren" class="md-nav__link">
+    SSH-Key generieren
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-config-anlegen" class="md-nav__link">
+    SSH-Config anlegen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verzeichnis-anlegen" class="md-nav__link">
+    Verzeichnis anlegen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restic" class="md-nav__link">
+    Restic
+  </a>
+  
+    <nav class="md-nav" aria-label="Restic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialisierung" class="md-nav__link">
+    Initialisierung
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatisierung" class="md-nav__link">
+    Automatisierung
+  </a>
+  
+    <nav class="md-nav" aria-label="Automatisierung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skript" class="md-nav__link">
+    Skript
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daemon" class="md-nav__link">
+    Daemon
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quellen" class="md-nav__link">
+    Quellen
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#einfuhrung" class="md-nav__link">
+    Einführung
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vorbereitung" class="md-nav__link">
+    Vorbereitung
+  </a>
+  
+    <nav class="md-nav" aria-label="Vorbereitung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh-key-generieren" class="md-nav__link">
+    SSH-Key generieren
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-config-anlegen" class="md-nav__link">
+    SSH-Config anlegen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verzeichnis-anlegen" class="md-nav__link">
+    Verzeichnis anlegen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restic" class="md-nav__link">
+    Restic
+  </a>
+  
+    <nav class="md-nav" aria-label="Restic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialisierung" class="md-nav__link">
+    Initialisierung
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automatisierung" class="md-nav__link">
+    Automatisierung
+  </a>
+  
+    <nav class="md-nav" aria-label="Automatisierung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skript" class="md-nav__link">
+    Skript
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#daemon" class="md-nav__link">
+    Daemon
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quellen" class="md-nav__link">
+    Quellen
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="hetzner-x-restic">Hetzner x Restic</h1>
+<h2 id="einfuhrung">Einführung</h2>
+<hr />
+<p>Hetzner:</p>
+<ul>
+<li>Ein deutscher Hosting-, Cloud- und Storageanbieter. Als Speicherort der Backups wird Hetzners <a href="https://www.hetzner.com/storage/storage-box">Storage Box</a> genutzt.</li>
+</ul>
+<p>Restic:</p>
+<ul>
+<li>Ein Programm zur Erstellung von Backups. Diese werden automatisch verschlüsselt, inkremmentell erzeugt und dedupliziert. Die zu sichernden Daten werden in einem Restic Repository gespeichert. Das Repository kann entweder lokal oder auf einem entfernten Server angelegt werden. Letzteres kann über SFTP gemacht werden.</li>
+</ul>
+<h2 id="vorbereitung">Vorbereitung</h2>
+<hr />
+<p>Sofern der zu sichernde Server außerhalb der Hetzner Cloud steht, muss im <a href="https://robot.your-server.de/storage">Hetzner Robot</a> die "externe Erreichbarkeit" aktiviert werden. Für den Zugriff auf die Storage Box wird im weiteren SFTP genutzt. Neben der Anmeldung über Passwort, ist auch die Authentifizierung über SSH-Key möglich.</p>
+<h3 id="ssh-key-generieren">SSH-Key generieren</h3>
+<p>Zunächst wird der SSH-Key generiert und die authorized_keys Datei vorbereitet.
+<div class="highlight"><pre><span></span><code>ssh-keygen
+</code></pre></div></p>
+<p>Wenn SFTP über SSH-Port 22 genutzt werden soll, muss der öffentliche Schlüssel in das RFC4716-Format umgewandelt werden.
+<div class="highlight"><pre><span></span><code>ssh-keygen -e -f .ssh/id_rsa.pub <span class="p">|</span> grep -v <span class="s2">&quot;Comment:&quot;</span> &gt; .ssh/id_rsa_rfc.pub
+</code></pre></div></p>
+<p>Der öffentliche Schlüssel wird sowohl im OpenSSH- als auch im RFC4716-Format zur Datei storagebox_authorized_keys hinzugefügt. 
+<div class="highlight"><pre><span></span><code>cat .ssh/id_rsa.pub &gt;&gt; storagebox_authorized_keys
+cat .ssh/id_rsa_rfc.pub &gt;&gt; storagebox_authorized_keys
+</code></pre></div></p>
+<p>Auf der Storage Box legen wir das Verzeichnis .ssh an und kopieren den Inhalt der storagebox_authorized_keys nach .ssh/authorized_keys. 
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span> -e <span class="s2">&quot;mkdir .ssh \n chmod 700 .ssh \n put storagebox_authorized_keys .ssh/authorized_keys \n chmod 600 .ssh/authorized_keys&quot;</span> <span class="p">|</span> sftp u123456@u123456.your-storagebox.de
+</code></pre></div></p>
+<h3 id="ssh-config-anlegen">SSH-Config anlegen</h3>
+<p>Die SSH-Config verkürzt den Befehl zur Verbindung mit dem SFTP-Server, da hier alle wichtigen Parameter zur Anmeldung mitgegeben werden können.
+<div class="highlight"><pre><span></span><code>vi ~/.ssh/config
+</code></pre></div></p>
+<p>Und folgenden Inhalt hinzufügen:
+<div class="highlight"><pre><span></span><code>host storagebox 
+    HostName u123456.your-storagebox.de
+    User u123456
+    IdentityFile ~/.ssh/id_rsa
+    ServerAliveInterval <span class="m">60</span>
+    ServerAliveCountMax <span class="m">240</span>
+</code></pre></div></p>
+<h3 id="verzeichnis-anlegen">Verzeichnis anlegen</h3>
+<p><div class="highlight"><pre><span></span><code><span class="nb">echo</span> -e <span class="s2">&quot;mkdir backup_server_1&quot;</span> <span class="p">|</span> sftp u123456@u123456.your-storagebox.de
+</code></pre></div>
+Hier wird später das Backup Repository des Servers auf der Storage Box abgelegt.</p>
+<h2 id="restic">Restic</h2>
+<hr />
+<h3 id="installation">Installation</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian / Ubuntu</label><label for="__tabbed_1_2">RHEL / AlmaLinux</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>apt install restic
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>dnf install epel
+dnf update
+dnf install restic
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="initialisierung">Initialisierung</h3>
+<p>Mit folgendem Befehl wird das Restic-Repository auf der Storage Box initialisiert.
+<div class="highlight"><pre><span></span><code>restic -r sftp:storagebox:/backup_server_1 init
+</code></pre></div></p>
+<h3 id="automatisierung">Automatisierung</h3>
+<h4 id="skript">Skript</h4>
+<p>Unter <code>/opt/skripte</code> müssen die folgenden Dateien angelegt werden:</p>
+<details>
+<summary>restic_env</summary>
+
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">RESTIC_REPOSITORY</span><span class="o">=</span>sftp:storagebox:/backup_server_1
+<span class="nb">export</span> <span class="nv">RESTIC_PASSWORD</span><span class="o">=</span>PASSWORD
+</code></pre></div>
+</details>
+
+<details>
+<summary>backup.sh</summary>
+
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
+<span class="c1"># This script is intended to be run by a systemd timer</span>
+<span class="c1">#### Kurze Anleitung ####</span>
+<span class="c1"># systemd timer backup.timer startet den daemon backup.service</span>
+<span class="c1"># /etc/systemd/system/backup.timer</span>
+<span class="c1"># /etc/systemd/system/backup.service</span>
+<span class="c1"># systemctl enable backup.timer --now</span>
+<span class="c1"># systemctl list-timers | grep backup</span>
+<span class="c1"># journalctl -u backup.service</span>
+<span class="c1">#### Ende #### </span>
+
+<span class="c1"># Exit on failure or pipefail</span>
+<span class="nb">set</span> -euo pipefail
+
+<span class="c1">#Set this to any location you like</span>
+<span class="nv">BACKUP_PATHS</span><span class="o">=</span><span class="s2">&quot;/var/lib/docker/volumes /opt/docker_compose&quot;</span>
+
+<span class="nv">BACKUP_TAG</span><span class="o">=</span>systemd.timer
+
+<span class="c1"># How many backups to keep.</span>
+<span class="nv">RETENTION_DAYS</span><span class="o">=</span><span class="m">7</span>
+<span class="nv">RETENTION_WEEKS</span><span class="o">=</span><span class="m">4</span>
+<span class="nv">RETENTION_MONTHS</span><span class="o">=</span><span class="m">12</span>
+<span class="nv">RETENTION_YEARS</span><span class="o">=</span><span class="m">1</span>
+
+<span class="nb">source</span> /opt/skripte/restic_env
+
+<span class="c1"># Remove locks in case other stale processes kept them in</span>
+restic unlock <span class="p">&amp;</span>
+<span class="nb">wait</span> <span class="nv">$!</span>
+
+<span class="c1">#Do the backup</span>
+
+restic --verbose <span class="se">\</span>
+       --tag <span class="nv">$BACKUP_TAG</span> <span class="se">\</span>
+       backup <span class="nv">$BACKUP_PATHS</span> <span class="p">&amp;</span>
+<span class="nb">wait</span> <span class="nv">$!</span>
+
+<span class="c1"># Remove old Backups</span>
+
+restic forget <span class="se">\</span>
+       --verbose <span class="se">\</span>
+       --tag <span class="nv">$BACKUP_TAG</span> <span class="se">\</span>
+       --prune <span class="se">\</span>
+       --keep-daily <span class="nv">$RETENTION_DAYS</span> <span class="se">\</span>
+       --keep-weekly <span class="nv">$RETENTION_WEEKS</span> <span class="se">\</span>
+       --keep-monthly <span class="nv">$RETENTION_MONTHS</span> <span class="se">\</span>
+       --keep-yearly <span class="nv">$RETENTION_YEARS</span> <span class="p">&amp;</span>
+<span class="nb">wait</span> <span class="nv">$!</span>
+
+<span class="c1"># Check if everything is fine</span>
+restic check <span class="p">&amp;</span>
+<span class="nb">wait</span> <span class="nv">$!</span>
+
+<span class="nb">echo</span> <span class="s2">&quot;Backup done!&quot;</span>
+</code></pre></div>
+</details>
+
+<h4 id="daemon">Daemon</h4>
+<p>Unter <code>/etc/systemd/system/</code> werden die folgende Dienste angelegt:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">backup.timer</label><label for="__tabbed_2_2">backup.service</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="o">[</span>Unit<span class="o">]</span>
+<span class="nv">Description</span><span class="o">=</span>Backup on schedule
+
+<span class="o">[</span>Timer<span class="o">]</span>
+<span class="nv">OnCalendar</span><span class="o">=</span>daily
+<span class="nv">Persistent</span><span class="o">=</span><span class="nb">true</span>
+
+<span class="o">[</span>Install<span class="o">]</span>
+<span class="nv">WantedBy</span><span class="o">=</span>timers.target
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="o">[</span>Unit<span class="o">]</span>
+<span class="nv">Description</span><span class="o">=</span>Backup with restic
+
+<span class="o">[</span>Service<span class="o">]</span>
+<span class="nv">Type</span><span class="o">=</span>simple
+<span class="nv">Nice</span><span class="o">=</span><span class="m">10</span>
+<span class="nv">ExecStart</span><span class="o">=</span>/opt/skripte/backup.sh
+<span class="c1">#$HOME must be set for restic to find /root/.cache/restic/</span>
+<span class="nv">Environment</span><span class="o">=</span><span class="s2">&quot;HOME=/root&quot;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Abschließend muss der systemd Manager neu geladen und backup.timer in den automatischen Start aufgenommen werden.
+<div class="highlight"><pre><span></span><code>systemctl daemon-reload
+systemctl <span class="nb">enable</span> backup.timer
+systemctl start backup.timer
+</code></pre></div></p>
+<p>Jetzt startet backup.timer den Dienst backup.service täglich gegen Mitternacht. Darüber hinaus kann backup service auch manuell gestartet werden.
+<div class="highlight"><pre><span></span><code>systemctl start backup.service
+<span class="c1"># Prüfen, ob Fehler aufgetreten sind</span>
+journalctl -xe backup.service
+<span class="c1"># Prüfen, ob Backup erfolgreich</span>
+restic -r sftp:storagebox:/backup_server_1 snapshots
+</code></pre></div></p>
+<h2 id="quellen">Quellen</h2>
+<hr />
+<ul>
+<li>https://docs.hetzner.com/de/robot/storage-box</li>
+<li>https://restic.readthedocs.io/en/stable/</li>
+<li>https://blog.bithive.space/post/automatic-backups-with-restic/</li>
+</ul>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Zurück: Home" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              Home
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/sujiba" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://hub.docker.com/u/sujiba" target="_blank" rel="noopener" title="hub.docker.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.tabs"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.config.lang": "de", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Suche", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version.title": "Version ausw\u00e4hlen"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a6c66575.min.js"></script>
+      
+    
+  </body>
+</html>
