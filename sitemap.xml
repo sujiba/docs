@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://sujiba.github.io/wiki/</loc>
+         <lastmod>2022-06-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://sujiba.github.io/wiki/hetzner_x_restic/</loc>
          <lastmod>2022-06-01</lastmod>
          <changefreq>daily</changefreq>
