@@ -5,13 +5,21 @@ title: Hetzner x Restic
 # Hetzner x Restic 
 ## Einführung
 -------------
-Hetzner:
 
-* Ein deutscher Hosting-, Cloud- und Storageanbieter. Als Speicherort der Backups wird Hetzners [Storage Box](https://www.hetzner.com/storage/storage-box) genutzt.
+### Hetzner
 
-Restic:
+<img src="../img/hetzner.png" width="120" height="40" style="float:left;">
 
-* Ein Programm zur Erstellung von Backups. Diese werden automatisch verschlüsselt, inkremmentell erzeugt und dedupliziert. Die zu sichernden Daten werden in einem Restic Repository gespeichert. Das Repository kann entweder lokal oder auf einem entfernten Server angelegt werden. Letzteres kann über SFTP gemacht werden.
+- Ein deutscher Hosting-, Cloud- und Storageanbieter. Als Speicherort der Backups wird Hetzners [Storage Box](https://www.hetzner.com/storage/storage-box) genutzt.  
+
+</br >
+</br >
+
+### Restic
+
+<img src="../img/restic.png" width="120" height="40" style="float:left;">
+
+- Ein Programm zur Erstellung von Backups. Diese werden automatisch verschlüsselt, inkremmentell erzeugt und dedupliziert. Die zu sichernden Daten werden in einem Restic Repository gespeichert. Das Repository kann entweder lokal oder auf einem entfernten Server angelegt werden. Letzteres kann über SFTP gemacht werden.
 
 ## Vorbereitung
 ----------------

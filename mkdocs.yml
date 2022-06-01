@@ -12,7 +12,7 @@ theme:
       accent: amber
       toggle:
         icon: material/weather-night
-        name: Siwtch to dark mode
+        name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"    
       scheme: slate
       primary: teal
@@ -35,6 +35,8 @@ extra:
       link: https://hub.docker.com/u/sujiba
 
 markdown_extensions:
+  - attr_list
+  - md_in_html
   - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.superfences
