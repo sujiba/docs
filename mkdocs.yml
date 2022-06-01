@@ -1,0 +1,50 @@
+site_name: Sujibas Homelab
+site_url: https://sujiba.github.io
+
+theme:
+  name: material
+  icon: 
+    logo: material/library
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/weather-night
+        name: Siwtch to dark mode
+    - media: "(prefers-color-scheme: dark)"    
+      scheme: slate
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  language: de
+  features:
+    - navigation.tracking
+    - navigation.tabs
+  # Prevents typefaces from being loaded from google fonts
+  font: false
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/sujiba
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/u/sujiba
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+#copyright: Copyright &copy; 2022 - 2022 sujiba
+
+# Page tree
+nav:
+  - Home: index.md
+  - Wiki:
+    - Hetzner x Restic: wiki/hetzner_x_restic.md
