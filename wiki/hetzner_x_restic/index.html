@@ -675,14 +675,6 @@ dnf install restic
 
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
 <span class="c1"># This script is intended to be run by a systemd timer</span>
-<span class="c1">#### Kurze Anleitung ####</span>
-<span class="c1"># systemd timer backup.timer startet den daemon backup.service</span>
-<span class="c1"># /etc/systemd/system/backup.timer</span>
-<span class="c1"># /etc/systemd/system/backup.service</span>
-<span class="c1"># systemctl enable backup.timer --now</span>
-<span class="c1"># systemctl list-timers | grep backup</span>
-<span class="c1"># journalctl -u backup.service</span>
-<span class="c1">#### Ende #### </span>
 
 <span class="c1"># Exit on failure or pipefail</span>
 <span class="nb">set</span> -euo pipefail
@@ -731,6 +723,9 @@ restic check <span class="p">&amp;</span>
 </code></pre></div>
 </details>
 
+<p>Nachdem die backup.sh angelegt wurde, muss das Skript ausführbar gemacht werden.
+<div class="highlight"><pre><span></span><code>chmod u+x /opt/scripts/backup.sh
+</code></pre></div></p>
 <h4 id="daemon">Daemon</h4>
 <p>Unter <code>/etc/systemd/system/</code> werden die folgende Dienste angelegt:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">backup.timer</label><label for="__tabbed_2_2">backup.service</label></div>
@@ -775,6 +770,9 @@ restic -r sftp:storagebox:/backup_server_1 snapshots
 </code></pre></div></p>
 <h2 id="backups-wiederherstellen">Backups wiederherstellen</h2>
 <p><a href="https://restic.readthedocs.io/en/latest/050_restore.html">Restic Restore</a></p>
+<p>Um einen einzelnen Ordner aus dem letzten Backup wiederherzustellen, kann zum Beispiel folgender Befehl genutzt werden:
+<div class="highlight"><pre><span></span><code>restic -r sftp:storagebox:/backup_server_1 restore latest --target /tmp/restore --include /opt/docker/folder
+</code></pre></div></p>
 <h2 id="quellen">Quellen</h2>
 <hr />
 <ul>
