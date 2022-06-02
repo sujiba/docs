@@ -109,14 +109,6 @@ export RESTIC_PASSWORD=PASSWORD
 ```bash
 #!/usr/bin/env bash
 # This script is intended to be run by a systemd timer
-#### Kurze Anleitung ####
-# systemd timer backup.timer startet den daemon backup.service
-# /etc/systemd/system/backup.timer
-# /etc/systemd/system/backup.service
-# systemctl enable backup.timer --now
-# systemctl list-timers | grep backup
-# journalctl -u backup.service
-#### Ende #### 
 
 # Exit on failure or pipefail
 set -euo pipefail
@@ -165,6 +157,11 @@ echo "Backup done!"
 ```
 </details>
 
+Nachdem die backup.sh angelegt wurde, muss das Skript ausführbar gemacht werden.
+```bash
+chmod u+x /opt/scripts/backup.sh
+```
+
 #### Daemon
 Unter `/etc/systemd/system/` werden die folgende Dienste angelegt:
 
@@ -212,6 +209,11 @@ restic -r sftp:storagebox:/backup_server_1 snapshots
 ## Backups wiederherstellen
 
 [Restic Restore](https://restic.readthedocs.io/en/latest/050_restore.html)
+
+Um einen einzelnen Ordner aus dem letzten Backup wiederherzustellen, kann zum Beispiel folgender Befehl genutzt werden:
+```Bash
+restic -r sftp:storagebox:/backup_server_1 restore latest --target /tmp/restore --include /opt/docker/folder
+```
 
 ## Quellen
 ----------
