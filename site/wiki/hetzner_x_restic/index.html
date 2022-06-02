@@ -728,7 +728,7 @@ dnf install restic
 <span class="nb">set</span> -euo pipefail
 
 <span class="c1">#Set this to any location you like</span>
-<span class="nv">BACKUP_PATHS</span><span class="o">=</span><span class="s2">&quot;/var/lib/docker/volumes /opt/docker_compose&quot;</span>
+<span class="nv">BACKUP_PATHS</span><span class="o">=</span><span class="s2">&quot;/var/lib/docker/volumes /opt/docker&quot;</span>
 
 <span class="nv">BACKUP_TAG</span><span class="o">=</span>systemd.timer
 
@@ -738,7 +738,7 @@ dnf install restic
 <span class="nv">RETENTION_MONTHS</span><span class="o">=</span><span class="m">12</span>
 <span class="nv">RETENTION_YEARS</span><span class="o">=</span><span class="m">1</span>
 
-<span class="nb">source</span> /opt/skripte/restic_env
+<span class="nb">source</span> /opt/scripts/restic_env
 
 <span class="c1"># Remove locks in case other stale processes kept them in</span>
 restic unlock <span class="p">&amp;</span>
@@ -794,7 +794,7 @@ restic check <span class="p">&amp;</span>
 <span class="o">[</span>Service<span class="o">]</span>
 <span class="nv">Type</span><span class="o">=</span>simple
 <span class="nv">Nice</span><span class="o">=</span><span class="m">10</span>
-<span class="nv">ExecStart</span><span class="o">=</span>/opt/skripte/backup.sh
+<span class="nv">ExecStart</span><span class="o">=</span>/opt/scripts/backup.sh
 <span class="c1">#$HOME must be set for restic to find /root/.cache/restic/</span>
 <span class="nv">Environment</span><span class="o">=</span><span class="s2">&quot;HOME=/root&quot;</span>
 </code></pre></div>
