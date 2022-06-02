@@ -6,20 +6,20 @@ title: Hetzner x Restic
 ## Einführung
 -------------
 
-### Hetzner
+Hetzner
 
 <img src="../img/hetzner.png" width="120" height="40" style="float:left;">
-
+ 
 - Ein deutscher Hosting-, Cloud- und Storageanbieter. Als Speicherort der Backups wird Hetzners [Storage Box](https://www.hetzner.com/storage/storage-box) genutzt.  
 
 </br >
 </br >
 
-### Restic
+Restic
 
 <img src="../img/restic.png" width="120" height="40" style="float:left;">
 
-- Ein Programm zur Erstellung von Backups. Diese werden automatisch verschlüsselt, inkremmentell erzeugt und dedupliziert. Die zu sichernden Daten werden in einem Restic Repository gespeichert. Das Repository kann entweder lokal oder auf einem entfernten Server angelegt werden. Letzteres kann über SFTP gemacht werden.
+- Ein Programm zur Erstellung von Backups. Diese werden automatisch verschlüsselt, inkremmentell erzeugt und dedupliziert. Die zu sichernden Daten werden in einem Restic Repository gespeichert. Das Repository kann entweder lokal oder auf einem entfernten Server angelegt werden.
 
 ## Vorbereitung
 ----------------
@@ -92,7 +92,7 @@ restic -r sftp:storagebox:/backup_server_1 init
 
 ### Automatisierung
 #### Skript
-Unter `/opt/skripte` müssen die folgenden Dateien angelegt werden:
+Unter `/opt/scripts` müssen die folgenden Dateien angelegt werden:
 
 <details>
 <summary>restic_env</summary>
@@ -204,7 +204,7 @@ Jetzt startet backup.timer den Dienst backup.service täglich gegen Mitternacht.
 ```bash
 systemctl start backup.service
 # Prüfen, ob Fehler aufgetreten sind
-journalctl -xe backup.service
+journalctl -u backup.service
 # Prüfen, ob Backup erfolgreich
 restic -r sftp:storagebox:/backup_server_1 snapshots
 ```
