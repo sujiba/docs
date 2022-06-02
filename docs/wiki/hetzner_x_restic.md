@@ -122,7 +122,7 @@ export RESTIC_PASSWORD=PASSWORD
 set -euo pipefail
 
 #Set this to any location you like
-BACKUP_PATHS="/var/lib/docker/volumes /opt/docker_compose"
+BACKUP_PATHS="/var/lib/docker/volumes /opt/docker"
 
 BACKUP_TAG=systemd.timer
 
@@ -132,7 +132,7 @@ RETENTION_WEEKS=4
 RETENTION_MONTHS=12
 RETENTION_YEARS=1
 
-source /opt/skripte/restic_env
+source /opt/scripts/restic_env
 
 # Remove locks in case other stale processes kept them in
 restic unlock &
@@ -188,7 +188,7 @@ Unter `/etc/systemd/system/` werden die folgende Dienste angelegt:
     [Service]
     Type=simple
     Nice=10
-    ExecStart=/opt/skripte/backup.sh
+    ExecStart=/opt/scripts/backup.sh
     #$HOME must be set for restic to find /root/.cache/restic/
     Environment="HOME=/root"
     ```
