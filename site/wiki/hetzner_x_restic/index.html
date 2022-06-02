@@ -433,6 +433,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#backups-wiederherstellen" class="md-nav__link">
+    Backups wiederherstellen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#quellen" class="md-nav__link">
     Quellen
   </a>
@@ -592,6 +599,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backups-wiederherstellen" class="md-nav__link">
+    Backups wiederherstellen
+  </a>
   
 </li>
       
@@ -799,6 +813,8 @@ journalctl -xe backup.service
 <span class="c1"># Prüfen, ob Backup erfolgreich</span>
 restic -r sftp:storagebox:/backup_server_1 snapshots
 </code></pre></div></p>
+<h2 id="backups-wiederherstellen">Backups wiederherstellen</h2>
+<p><a href="https://restic.readthedocs.io/en/latest/050_restore.html">Restic Restore</a></p>
 <h2 id="quellen">Quellen</h2>
 <hr />
 <ul>
