@@ -209,6 +209,10 @@ journalctl -xe backup.service
 restic -r sftp:storagebox:/backup_server_1 snapshots
 ```
 
+## Backups wiederherstellen
+
+[Restic Restore](https://restic.readthedocs.io/en/latest/050_restore.html)
+
 ## Quellen
 ----------
 - https://docs.hetzner.com/de/robot/storage-box
