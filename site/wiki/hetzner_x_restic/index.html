@@ -322,26 +322,6 @@
     Einführung
   </a>
   
-    <nav class="md-nav" aria-label="Einführung">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hetzner" class="md-nav__link">
-    Hetzner
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#restic" class="md-nav__link">
-    Restic
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -379,7 +359,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#restic_1" class="md-nav__link">
+  <a href="#restic" class="md-nav__link">
     Restic
   </a>
   
@@ -492,26 +472,6 @@
     Einführung
   </a>
   
-    <nav class="md-nav" aria-label="Einführung">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hetzner" class="md-nav__link">
-    Hetzner
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#restic" class="md-nav__link">
-    Restic
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -549,7 +509,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#restic_1" class="md-nav__link">
+  <a href="#restic" class="md-nav__link">
     Restic
   </a>
   
@@ -633,17 +593,17 @@
 <h1 id="hetzner-x-restic">Hetzner x Restic</h1>
 <h2 id="einfuhrung">Einführung</h2>
 <hr />
-<h3 id="hetzner">Hetzner</h3>
+<p>Hetzner</p>
 <p><img src="../img/hetzner.png" width="120" height="40" style="float:left;"></p>
 <ul>
 <li>Ein deutscher Hosting-, Cloud- und Storageanbieter. Als Speicherort der Backups wird Hetzners <a href="https://www.hetzner.com/storage/storage-box">Storage Box</a> genutzt.  </li>
 </ul>
 <p></br >
 </br ></p>
-<h3 id="restic">Restic</h3>
+<p>Restic</p>
 <p><img src="../img/restic.png" width="120" height="40" style="float:left;"></p>
 <ul>
-<li>Ein Programm zur Erstellung von Backups. Diese werden automatisch verschlüsselt, inkremmentell erzeugt und dedupliziert. Die zu sichernden Daten werden in einem Restic Repository gespeichert. Das Repository kann entweder lokal oder auf einem entfernten Server angelegt werden. Letzteres kann über SFTP gemacht werden.</li>
+<li>Ein Programm zur Erstellung von Backups. Diese werden automatisch verschlüsselt, inkremmentell erzeugt und dedupliziert. Die zu sichernden Daten werden in einem Restic Repository gespeichert. Das Repository kann entweder lokal oder auf einem entfernten Server angelegt werden.</li>
 </ul>
 <h2 id="vorbereitung">Vorbereitung</h2>
 <hr />
@@ -678,7 +638,7 @@ cat .ssh/id_rsa_rfc.pub &gt;&gt; storagebox_authorized_keys
 <p><div class="highlight"><pre><span></span><code><span class="nb">echo</span> -e <span class="s2">&quot;mkdir backup_server_1&quot;</span> <span class="p">|</span> sftp u123456@u123456.your-storagebox.de
 </code></pre></div>
 Hier wird später das Backup Repository des Servers auf der Storage Box abgelegt.</p>
-<h2 id="restic_1">Restic</h2>
+<h2 id="restic">Restic</h2>
 <hr />
 <h3 id="installation">Installation</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian / Ubuntu</label><label for="__tabbed_1_2">RHEL / AlmaLinux</label></div>
@@ -701,7 +661,7 @@ dnf install restic
 </code></pre></div></p>
 <h3 id="automatisierung">Automatisierung</h3>
 <h4 id="skript">Skript</h4>
-<p>Unter <code>/opt/skripte</code> müssen die folgenden Dateien angelegt werden:</p>
+<p>Unter <code>/opt/scripts</code> müssen die folgenden Dateien angelegt werden:</p>
 <details>
 <summary>restic_env</summary>
 
@@ -809,7 +769,7 @@ systemctl start backup.timer
 <p>Jetzt startet backup.timer den Dienst backup.service täglich gegen Mitternacht. Darüber hinaus kann backup service auch manuell gestartet werden.
 <div class="highlight"><pre><span></span><code>systemctl start backup.service
 <span class="c1"># Prüfen, ob Fehler aufgetreten sind</span>
-journalctl -xe backup.service
+journalctl -u backup.service
 <span class="c1"># Prüfen, ob Backup erfolgreich</span>
 restic -r sftp:storagebox:/backup_server_1 snapshots
 </code></pre></div></p>
