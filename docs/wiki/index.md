@@ -1,2 +1,2 @@
-# Willkommen im Wiki
+# Willkommen
 --------------------

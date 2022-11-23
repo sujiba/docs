@@ -49,5 +49,6 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Wiki:
+    - wiki/index.md
     - Hetzner x Restic: wiki/hetzner_x_restic.md
     - Home Assistant: wiki/homeassistant.md
