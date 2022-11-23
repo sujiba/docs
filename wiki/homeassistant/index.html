@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://sujiba.github.io/wiki/hetzner_x_restic/">
+        <link rel="canonical" href="https://sujiba.github.io/wiki/homeassistant/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>Hetzner x Restic - Docs</title>
+        <title>Home Assistant - Docs</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hetzner-x-restic" class="md-skip">
+        <a href="#home-assistant" class="md-skip">
           Zum Inhalt
         </a>
       
@@ -95,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Hetzner x Restic
+              Home Assistant
             
           </span>
         </div>
@@ -199,7 +199,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+      <a href="../hetzner_x_restic/" class="md-tabs__link md-tabs__link--active">
         Wiki
       </a>
     </li>
@@ -287,6 +287,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../hetzner_x_restic/" class="md-nav__link">
+        Hetzner x Restic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -299,12 +313,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Hetzner x Restic
+          Home Assistant
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Hetzner x Restic
+        Home Assistant
       </a>
       
         
@@ -338,22 +352,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ssh-key-generieren" class="md-nav__link">
-    SSH-Key generieren
+  <a href="#boot-from-usb" class="md-nav__link">
+    Boot from USB
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ssh-config-anlegen" class="md-nav__link">
-    SSH-Config anlegen
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#verzeichnis-anlegen" class="md-nav__link">
-    Verzeichnis anlegen
+  <a href="#hassos-auf-ssd-laden" class="md-nav__link">
+    HassOS auf SSD laden
   </a>
   
 </li>
@@ -364,51 +371,59 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#restic" class="md-nav__link">
-    Restic
+  <a href="#einrichtung" class="md-nav__link">
+    Einrichtung
   </a>
   
-    <nav class="md-nav" aria-label="Restic">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-ons" class="md-nav__link">
+    Add-Ons
+  </a>
+  
+    <nav class="md-nav" aria-label="Add-Ons">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    Installation
+  <a href="#lets-encrypt" class="md-nav__link">
+    Let's Encrypt
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#initialisierung" class="md-nav__link">
-    Initialisierung
+  <a href="#nginx-home-assistant-ssl-proxy" class="md-nav__link">
+    NGINX Home Assistant SSL proxy
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#automatisierung" class="md-nav__link">
-    Automatisierung
-  </a>
-  
-    <nav class="md-nav" aria-label="Automatisierung">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#skript" class="md-nav__link">
-    Skript
+  <a href="#ssh-terminal" class="md-nav__link">
+    SSH &amp; Terminal
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#daemon" class="md-nav__link">
-    Daemon
+  <a href="#mosquitto-broker" class="md-nav__link">
+    Mosquitto broker
   </a>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#zigbee2mqtt" class="md-nav__link">
+    Zigbee2MQTT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uptime-kuma" class="md-nav__link">
+    Uptime Kuma
+  </a>
   
 </li>
         
@@ -418,15 +433,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#backups-wiederherstellen" class="md-nav__link">
-    Backups wiederherstellen
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quellen" class="md-nav__link">
-    Quellen
+  <a href="#integrationen" class="md-nav__link">
+    Integrationen
   </a>
   
 </li>
@@ -435,20 +443,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../homeassistant/" class="md-nav__link">
-        Home Assistant
-      </a>
     </li>
   
 
@@ -502,22 +496,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ssh-key-generieren" class="md-nav__link">
-    SSH-Key generieren
+  <a href="#boot-from-usb" class="md-nav__link">
+    Boot from USB
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#ssh-config-anlegen" class="md-nav__link">
-    SSH-Config anlegen
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#verzeichnis-anlegen" class="md-nav__link">
-    Verzeichnis anlegen
+  <a href="#hassos-auf-ssd-laden" class="md-nav__link">
+    HassOS auf SSD laden
   </a>
   
 </li>
@@ -528,51 +515,59 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#restic" class="md-nav__link">
-    Restic
+  <a href="#einrichtung" class="md-nav__link">
+    Einrichtung
   </a>
   
-    <nav class="md-nav" aria-label="Restic">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-ons" class="md-nav__link">
+    Add-Ons
+  </a>
+  
+    <nav class="md-nav" aria-label="Add-Ons">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    Installation
+  <a href="#lets-encrypt" class="md-nav__link">
+    Let's Encrypt
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#initialisierung" class="md-nav__link">
-    Initialisierung
+  <a href="#nginx-home-assistant-ssl-proxy" class="md-nav__link">
+    NGINX Home Assistant SSL proxy
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#automatisierung" class="md-nav__link">
-    Automatisierung
-  </a>
-  
-    <nav class="md-nav" aria-label="Automatisierung">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#skript" class="md-nav__link">
-    Skript
+  <a href="#ssh-terminal" class="md-nav__link">
+    SSH &amp; Terminal
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#daemon" class="md-nav__link">
-    Daemon
+  <a href="#mosquitto-broker" class="md-nav__link">
+    Mosquitto broker
   </a>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#zigbee2mqtt" class="md-nav__link">
+    Zigbee2MQTT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uptime-kuma" class="md-nav__link">
+    Uptime Kuma
+  </a>
   
 </li>
         
@@ -582,15 +577,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#backups-wiederherstellen" class="md-nav__link">
-    Backups wiederherstellen
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quellen" class="md-nav__link">
-    Quellen
+  <a href="#integrationen" class="md-nav__link">
+    Integrationen
   </a>
   
 </li>
@@ -610,196 +598,118 @@
                   
 
 
-<h1 id="hetzner-x-restic">Hetzner x Restic</h1>
+<h1 id="home-assistant">Home Assistant</h1>
 <h2 id="einfuhrung">Einführung</h2>
 <hr />
-<p>Hetzner</p>
-<p><img src="../img/hetzner.png" width="120" height="40" style="float:left;"></p>
-<ul>
-<li>Ein deutscher Hosting-, Cloud- und Storageanbieter. Als Speicherort der Backups wird Hetzners <a href="https://www.hetzner.com/storage/storage-box">Storage Box</a> genutzt.  </li>
-</ul>
-<p></br >
-</br ></p>
-<p>Restic</p>
-<p><img src="../img/restic.png" width="120" height="40" style="float:left;"></p>
-<ul>
-<li>Ein Programm zur Erstellung von Backups. Diese werden automatisch verschlüsselt, inkremmentell erzeugt und dedupliziert. Die zu sichernden Daten werden in einem Restic Repository gespeichert. Das Repository kann entweder lokal oder auf einem entfernten Server angelegt werden.</li>
-</ul>
+<p>Home Assistant ist eine kostenlose und quelloffene Software zur Hausautomation, die als zentrales Steuerungssystem in einem Smart Home oder Smart House konzipiert ist. Geschrieben in Python liegt ihr Hauptaugenmerk auf lokaler Steuerung und Privatsphäre. </p>
 <h2 id="vorbereitung">Vorbereitung</h2>
 <hr />
-<p>Sofern der zu sichernde Server außerhalb der Hetzner Cloud steht, muss im <a href="https://robot.your-server.de/storage">Hetzner Robot</a> die "externe Erreichbarkeit" aktiviert werden. Für den Zugriff auf die Storage Box wird im weiteren SFTP genutzt. Neben der Anmeldung über Passwort, ist auch die Authentifizierung über SSH-Key möglich.</p>
-<h3 id="ssh-key-generieren">SSH-Key generieren</h3>
-<p>Zunächst wird der SSH-Key generiert und die authorized_keys Datei vorbereitet.
-<div class="highlight"><pre><span></span><code>ssh-keygen
-</code></pre></div></p>
-<p>Wenn SFTP über SSH-Port 22 genutzt werden soll, muss der öffentliche Schlüssel in das RFC4716-Format umgewandelt werden.
-<div class="highlight"><pre><span></span><code>ssh-keygen -e -f .ssh/id_rsa.pub <span class="p">|</span> grep -v <span class="s2">&quot;Comment:&quot;</span> &gt; .ssh/id_rsa_rfc.pub
-</code></pre></div></p>
-<p>Der öffentliche Schlüssel wird sowohl im OpenSSH- als auch im RFC4716-Format zur Datei storagebox_authorized_keys hinzugefügt. 
-<div class="highlight"><pre><span></span><code>cat .ssh/id_rsa.pub &gt;&gt; storagebox_authorized_keys
-cat .ssh/id_rsa_rfc.pub &gt;&gt; storagebox_authorized_keys
-</code></pre></div></p>
-<p>Auf der Storage Box legen wir das Verzeichnis .ssh an und kopieren den Inhalt der storagebox_authorized_keys nach .ssh/authorized_keys. 
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span> -e <span class="s2">&quot;mkdir .ssh \n chmod 700 .ssh \n put storagebox_authorized_keys .ssh/authorized_keys \n chmod 600 .ssh/authorized_keys&quot;</span> <span class="p">|</span> sftp u123456@u123456.your-storagebox.de
-</code></pre></div></p>
-<h3 id="ssh-config-anlegen">SSH-Config anlegen</h3>
-<p>Die SSH-Config verkürzt den Befehl zur Verbindung mit dem SFTP-Server, da hier alle wichtigen Parameter zur Anmeldung mitgegeben werden können.
-<div class="highlight"><pre><span></span><code>vi ~/.ssh/config
-</code></pre></div></p>
-<p>Und folgenden Inhalt hinzufügen:
-<div class="highlight"><pre><span></span><code>host storagebox 
-    HostName u123456.your-storagebox.de
-    User u123456
-    IdentityFile ~/.ssh/id_rsa
-    ServerAliveInterval <span class="m">60</span>
-    ServerAliveCountMax <span class="m">240</span>
-</code></pre></div></p>
-<h3 id="verzeichnis-anlegen">Verzeichnis anlegen</h3>
-<p><div class="highlight"><pre><span></span><code><span class="nb">echo</span> -e <span class="s2">&quot;mkdir backup_server_1&quot;</span> <span class="p">|</span> sftp u123456@u123456.your-storagebox.de
-</code></pre></div>
-Hier wird später das Backup Repository des Servers auf der Storage Box abgelegt.</p>
-<h2 id="restic">Restic</h2>
+<p>Es wird empfohlen, anstelle der SD-Karte eine SSD einzusetzen, da Home Assistant sehr schreibintensiv ist und SD-Karten durch viele Schreibvorgänge frühzeitig einen Defekt erleiden können. Damit der Raspberry Pi beim Systemstart von der SSD bootet, muss die Boot-Reihenfolge angepasst werden.</p>
+<h3 id="boot-from-usb">Boot from USB</h3>
+<p>Raspberry Pi Imager öffnen. Unter "OS Wählen/Misc utility images/Bootloader/USB Boot" auswählen. Dann unter "SD-Karte wählen" die SD-Karte auswählen und mit "Schreiben" den Vorgang starten. Sobald die SD-Karte beschrieben und ausgeworfen wurde, kann diese in den Raspberry Pi gesteckt werden. Den Raspberry Pi an den Strom anschließen. Eine Minute warten, den Raspberry Pi wieder vom Strom trennen und die SD-Karte entfernen.</p>
+<h3 id="hassos-auf-ssd-laden">HassOS auf SSD laden</h3>
+<p>Als nächstes können wir die SSD vorbereiten. Diese über SATA zu USB Adapter am Rechner anschließen. Erneut den Raspberry Pi Imager öffnen. In diesem Fall wählen wir unter "OS wählen/Other specific-purpose OS/Home assistants and home automation/Home Assistant/Home Assistant OS 9.3 (Pi Version)" aus. Unter "SD-Karte wählen" die SSD auswählen und auf "Schreiben" klicken. Nach Abschluss des Schreibvorgangs kann die SSD vom Rechenr getrennt und an den Raspberry Pi angeschlossen werden. Abschließen den Raspberry Pi wieder mit Strom versorgen.</p>
+<h2 id="einrichtung">Einrichtung</h2>
 <hr />
-<h3 id="installation">Installation</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Debian / Ubuntu</label><label for="__tabbed_1_2">RHEL / AlmaLinux</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>apt install restic
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>dnf install epel
-dnf update
-dnf install restic
-</code></pre></div>
-</div>
-</div>
-</div>
-<h3 id="initialisierung">Initialisierung</h3>
-<p>Mit folgendem Befehl wird das Restic-Repository auf der Storage Box initialisiert.
-<div class="highlight"><pre><span></span><code>restic -r sftp:storagebox:/backup_server_1 init
-</code></pre></div></p>
-<h3 id="automatisierung">Automatisierung</h3>
-<h4 id="skript">Skript</h4>
-<p>Unter <code>/opt/scripts</code> müssen die folgenden Dateien angelegt werden:</p>
+<p>Home Assistant ist jetzt unter <a href="http://homeassistant.local:8123">http://homeassistant.local:8123</a> erreichbar und kann eingerichtet werden. Siehe hierfür <a href="https://www.home-assistant.io/getting-started/onboarding/">Onboarding</a>.</p>
+<h2 id="add-ons">Add-Ons</h2>
+<hr />
+<p>Unter "Einstellungen/Add-Ons" kann man über den "Add-On Store" (Schalter unten rechts) Erweiterungen hinzufügen. Diese Add-Ons sind weitere Docker Container, die über Home Assistant konfiguriert und gestartet werden. Die Konfigurationen können auch in YAML bearbeitet werden. Hierfür bei dem jeweiligen Add-On unter dem Reiter "Konfiguration" auf das drei Punkte Menü klicken und "Als YAML bearbeiten" auswählen.</p>
+<h3 id="lets-encrypt">Let's Encrypt</h3>
+<p><a href="https://github.com/home-assistant/addons/blob/master/letsencrypt/DOCS.md">Dokumentation</a>
+</br ></p>
+<p>Folgend ein Beispiel zur Erstellung eines Let's Encrypt Zertifkats mit DNS-01 und der Netcup API:</p>
 <details>
-<summary>restic_env</summary>
-
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">RESTIC_REPOSITORY</span><span class="o">=</span>sftp:storagebox:/backup_server_1
-<span class="nb">export</span> <span class="nv">RESTIC_PASSWORD</span><span class="o">=</span>PASSWORD
+<summary>Konfiguration</summary>
+<div class="highlight"><pre><span></span><code><span class="nt">domains</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">home.example.com</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">second.example.com</span><span class="w"></span>
+<span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MAIL</span><span class="w"></span>
+<span class="nt">keyfile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">privkey.pem</span><span class="w"></span>
+<span class="nt">certfile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fullchain.pem</span><span class="w"></span>
+<span class="nt">challenge</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dns</span><span class="w"></span>
+<span class="nt">dns</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dns-netcup</span><span class="w"></span>
+<span class="w">  </span><span class="nt">propagation_seconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">900</span><span class="w"></span>
+<span class="w">  </span><span class="nt">netcup_customer_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;123456&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">netcup_api_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KEY</span><span class="w"></span>
+<span class="w">  </span><span class="nt">netcup_api_password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PASSWORD</span><span class="w"></span>
 </code></pre></div>
 </details>
 
+<p>Das Zertifikat sowie der Key werden unter /ssl abgelegt und können so auch von anderen Add-Ons genutzt werde.</p>
+<h3 id="nginx-home-assistant-ssl-proxy">NGINX Home Assistant SSL proxy</h3>
+<p><a href="https://github.com/home-assistant/addons/blob/master/nginx_proxy/DOCS.md">Dokumentation</a>
+</br></p>
+<p>Folgend ein Beispiel zur Einrichtung des Reverse Proxys:</p>
 <details>
-<summary>backup.sh</summary>
-
-<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env bash</span>
-<span class="c1"># This script is intended to be run by a systemd timer</span>
-
-<span class="c1"># Exit on failure or pipefail</span>
-<span class="nb">set</span> -euo pipefail
-
-<span class="c1">#Set this to any location you like</span>
-<span class="nv">BACKUP_PATHS</span><span class="o">=</span><span class="s2">&quot;/var/lib/docker/volumes /opt/docker&quot;</span>
-
-<span class="nv">BACKUP_TAG</span><span class="o">=</span>systemd.timer
-
-<span class="c1"># How many backups to keep.</span>
-<span class="nv">RETENTION_DAYS</span><span class="o">=</span><span class="m">7</span>
-<span class="nv">RETENTION_WEEKS</span><span class="o">=</span><span class="m">4</span>
-<span class="nv">RETENTION_MONTHS</span><span class="o">=</span><span class="m">12</span>
-<span class="nv">RETENTION_YEARS</span><span class="o">=</span><span class="m">1</span>
-
-<span class="nb">source</span> /opt/scripts/restic_env
-
-<span class="c1"># Remove locks in case other stale processes kept them in</span>
-restic unlock <span class="p">&amp;</span>
-<span class="nb">wait</span> <span class="nv">$!</span>
-
-<span class="c1">#Do the backup</span>
-
-restic --verbose <span class="se">\</span>
-       --tag <span class="nv">$BACKUP_TAG</span> <span class="se">\</span>
-       backup <span class="nv">$BACKUP_PATHS</span> <span class="p">&amp;</span>
-<span class="nb">wait</span> <span class="nv">$!</span>
-
-<span class="c1"># Remove old Backups</span>
-
-restic forget <span class="se">\</span>
-       --verbose <span class="se">\</span>
-       --tag <span class="nv">$BACKUP_TAG</span> <span class="se">\</span>
-       --prune <span class="se">\</span>
-       --keep-daily <span class="nv">$RETENTION_DAYS</span> <span class="se">\</span>
-       --keep-weekly <span class="nv">$RETENTION_WEEKS</span> <span class="se">\</span>
-       --keep-monthly <span class="nv">$RETENTION_MONTHS</span> <span class="se">\</span>
-       --keep-yearly <span class="nv">$RETENTION_YEARS</span> <span class="p">&amp;</span>
-<span class="nb">wait</span> <span class="nv">$!</span>
-
-<span class="c1"># Check if everything is fine</span>
-restic check <span class="p">&amp;</span>
-<span class="nb">wait</span> <span class="nv">$!</span>
-
-<span class="nb">echo</span> <span class="s2">&quot;Backup done!&quot;</span>
+<summary>Konfiguration</summary>
+<div class="highlight"><pre><span></span><code><span class="nt">domain</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">home.example.com</span><span class="w"></span>
+<span class="nt">hsts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">max-age=31536000; includeSubDomains</span><span class="w"></span>
+<span class="nt">certfile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fullchain.pem</span><span class="w"></span>
+<span class="nt">keyfile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">privkey.pem</span><span class="w"></span>
+<span class="nt">cloudflare</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="nt">customize</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">active</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx_proxy_default*.conf</span><span class="w"></span>
+<span class="w">  </span><span class="nt">servers</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx_proxy/*.conf</span><span class="w"></span>
 </code></pre></div>
 </details>
 
-<p>Nachdem die backup.sh angelegt wurde, muss das Skript ausführbar gemacht werden.
-<div class="highlight"><pre><span></span><code>chmod u+x /opt/scripts/backup.sh
-</code></pre></div></p>
-<h4 id="daemon">Daemon</h4>
-<p>Unter <code>/etc/systemd/system/</code> werden die folgende Dienste angelegt:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">backup.timer</label><label for="__tabbed_2_2">backup.service</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="o">[</span>Unit<span class="o">]</span>
-<span class="nv">Description</span><span class="o">=</span>Backup on schedule
-
-<span class="o">[</span>Timer<span class="o">]</span>
-<span class="nv">OnCalendar</span><span class="o">=</span>daily
-<span class="nv">Persistent</span><span class="o">=</span><span class="nb">true</span>
-
-<span class="o">[</span>Install<span class="o">]</span>
-<span class="nv">WantedBy</span><span class="o">=</span>timers.target
+<p>Durch das Setzen der Option "active: true" haben wir jetzt die Möglichkeit weitere vHosts für andere Add-Ons (zB Uptime Kuma) unter "nginx_proxy/*.conf" anzulegen. Der Ordner "nginx_proxy" muss unter "/share" angelegt werden. Dies kann mit dem Add-On "Terminal &amp; SSH" gemacht werden.</p>
+<h3 id="ssh-terminal">SSH &amp; Terminal</h3>
+<p><a href="https://github.com/home-assistant/addons/blob/master/ssh/DOCS.md">Dokumentation</a></p>
+<h3 id="mosquitto-broker">Mosquitto broker</h3>
+<p><a href="https://github.com/home-assistant/addons/blob/master/mosquitto/DOCS.md">Dokumentation</a></p>
+<h3 id="zigbee2mqtt">Zigbee2MQTT</h3>
+<p><a href="https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/blob/master/README.md">Dokumentation</a>
+</br></p>
+<p>Folgend ein Beispiel zur Einrichtung von Zigbee2MQTT mit dem ConBee II:</p>
+<details>
+<summary>Konfiguration</summary>
+<div class="highlight"><pre><span></span><code><span class="nt">data_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/config/zigbee2mqtt</span><span class="w"></span>
+<span class="nt">socat</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="w">  </span><span class="nt">master</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pty,raw,echo=0,link=/tmp/ttyZ2M,mode=777</span><span class="w"></span>
+<span class="w">  </span><span class="nt">slave</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tcp-listen:8485,keepalive,nodelay,reuseaddr,keepidle=1,keepintvl=1,keepcnt=5</span><span class="w"></span>
+<span class="w">  </span><span class="nt">options</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;-d</span><span class="nv"> </span><span class="s">-d&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">log</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="nt">mqtt</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span><span class="w"></span>
+<span class="nt">serial</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">adapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deconz</span><span class="w"></span>
+<span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/dev/ttyACM0</span><span class="w"></span>
 </code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="o">[</span>Unit<span class="o">]</span>
-<span class="nv">Description</span><span class="o">=</span>Backup with restic
+</details>
 
-<span class="o">[</span>Service<span class="o">]</span>
-<span class="nv">Type</span><span class="o">=</span>simple
-<span class="nv">Nice</span><span class="o">=</span><span class="m">10</span>
-<span class="nv">ExecStart</span><span class="o">=</span>/opt/scripts/backup.sh
-<span class="c1">#$HOME must be set for restic to find /root/.cache/restic/</span>
-<span class="nv">Environment</span><span class="o">=</span><span class="s2">&quot;HOME=/root&quot;</span>
+<h3 id="uptime-kuma">Uptime Kuma</h3>
+<p><a href="https://github.com/hassio-addons/addon-uptime-kuma/blob/main/uptime-kuma/DOCS.md">Dokumentation</a>
+</br></p>
+<p>Damit Uptime Kuma auch über https erreichbar ist, muss jetzt unter "/share/nginx_proxy" eine neue vHost Konfiguration angelegt werden:</p>
+<details>
+<summary>uptime-kuma.conf</summary>
+<div class="highlight"><pre><span></span><code>server <span class="o">{</span>
+  listen <span class="m">443</span> ssl http2<span class="p">;</span>
+  server_name sub.domain.com<span class="p">;</span>
+  ssl_certificate     /ssl/fullchain.pem<span class="p">;</span>
+  ssl_certificate_key /ssl/privkey.pem<span class="p">;</span>
+
+  location / <span class="o">{</span>
+    proxy_set_header   X-Real-IP <span class="nv">$remote_addr</span><span class="p">;</span>
+    proxy_set_header   X-Forwarded-For <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+    proxy_set_header   Host <span class="nv">$host</span><span class="p">;</span>
+    proxy_pass         http://HOSTNAME:3001/<span class="p">;</span>
+    proxy_http_version <span class="m">1</span>.1<span class="p">;</span>
+    proxy_set_header   Upgrade <span class="nv">$http_upgrade</span><span class="p">;</span>
+    proxy_set_header   Connection <span class="s2">&quot;upgrade&quot;</span><span class="p">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 </code></pre></div>
-</div>
-</div>
-</div>
-<p>Abschließend muss der systemd Manager neu geladen und backup.timer in den automatischen Start aufgenommen werden.
-<div class="highlight"><pre><span></span><code>systemctl daemon-reload
-systemctl <span class="nb">enable</span> backup.timer
-systemctl start backup.timer
-</code></pre></div></p>
-<p>Jetzt startet backup.timer den Dienst backup.service täglich gegen Mitternacht. Darüber hinaus kann backup service auch manuell gestartet werden.
-<div class="highlight"><pre><span></span><code>systemctl start backup.service
-<span class="c1"># Prüfen, ob Fehler aufgetreten sind</span>
-journalctl -u backup.service
-<span class="c1"># Prüfen, ob Backup erfolgreich</span>
-restic -r sftp:storagebox:/backup_server_1 snapshots
-</code></pre></div></p>
-<h2 id="backups-wiederherstellen">Backups wiederherstellen</h2>
-<p><a href="https://restic.readthedocs.io/en/latest/050_restore.html">Restic Restore</a></p>
-<p>Um einen einzelnen Ordner aus dem letzten Backup wiederherzustellen, kann zum Beispiel folgender Befehl genutzt werden:
-<div class="highlight"><pre><span></span><code>restic -r sftp:storagebox:/backup_server_1 restore latest --target /tmp/restore --include /opt/docker/folder
-</code></pre></div></p>
-<h2 id="quellen">Quellen</h2>
+</details>
+
+<p>"HOSTNAME" muss ersetzt werden. Hier muss der korrekte Name des Docker Containers eingetragen werden, ansonsten kann der Traffic nicht weitergeleitet werden. Der Hostname des Containers ist bei dem jeweiligen Add-On unter dem Punkt "Informationen" zu finden. </p>
+<h2 id="integrationen">Integrationen</h2>
 <hr />
-<ul>
-<li>https://docs.hetzner.com/de/robot/storage-box</li>
-<li>https://restic.readthedocs.io/en/stable/</li>
-<li>https://blog.bithive.space/post/automatic-backups-with-restic/</li>
-</ul>
+<p>Über <a href="https://www.home-assistant.io/integrations/">Integrationen</a> können die verschiedensten Hersteller sowie Produkte in Home Assistant eingebunden werden. </p>
 
 
 
@@ -820,7 +730,7 @@ restic -r sftp:storagebox:/backup_server_1 snapshots
     <nav class="md-footer__inner md-grid" aria-label="Fußzeile" >
       
         
-        <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Zurück: Home" rel="prev">
+        <a href="../hetzner_x_restic/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Hetzner x Restic" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -829,26 +739,11 @@ restic -r sftp:storagebox:/backup_server_1 snapshots
               <span class="md-footer__direction">
                 Zurück
               </span>
-              Home
+              Hetzner x Restic
             </div>
           </div>
         </a>
       
-      
-        
-        <a href="../homeassistant/" class="md-footer__link md-footer__link--next" aria-label="Weiter: Home Assistant" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Weiter
-              </span>
-              Home Assistant
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
