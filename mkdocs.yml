@@ -3,7 +3,7 @@ site_url: https://sujiba.github.io
 
 theme:
   name: material
-  icon: 
+  icon:
     logo: material/library
   palette:
     - media: "(prefers-color-scheme: light)"
@@ -13,7 +13,7 @@ theme:
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"    
+    - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: teal
       accent: amber
@@ -42,16 +42,16 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
+  - tables
 
-#copyright: Copyright &copy; 2022 - 2022 sujiba
+copyright: Copyright &copy; 2022 - 2023 sujiba
 
 # Page tree
 nav:
   - Home: index.md
   - Wiki:
-    - wiki/index.md
-    - Hetzner x Restic: wiki/hetzner_x_restic.md
-    - Home Assistant: wiki/homeassistant.md
+      - wiki/index.md
+      - Hetzner x Restic: wiki/hetzner_x_restic.md
+      - Home Assistant: wiki/homeassistant.md
   - Home-Ops:
-    - home-ops/index.md
-    - Talos Linux: home-ops/talos_linux.md
+      - home-ops/index.md
