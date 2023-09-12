@@ -52,3 +52,6 @@ nav:
     - wiki/index.md
     - Hetzner x Restic: wiki/hetzner_x_restic.md
     - Home Assistant: wiki/homeassistant.md
+  - Home-Ops:
+    - home-ops/index.md
+    - Talos Linux: home-ops/talos_linux.md
